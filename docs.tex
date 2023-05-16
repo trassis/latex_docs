@@ -1,0 +1,110 @@
+\documentclass[10pt]{article}
+
+\usepackage[brazil]{babel} % Portugues
+\usepackage[utf8]{inputenc} % Formatation
+\usepackage[a4paper,margin=2cm]{geometry} %Sets the page geometry
+\usepackage{amsmath,amssymb,amsfonts,amsthm} % Maths
+\usepackage{graphics}
+\usepackage{import}
+\usepackage{multicol}
+
+\setlength\parindent{0pt} % Sem indentação em novo parágrafo
+\selectlanguage{brazil} 
+\linespread{1.0} % Espaço entre linhas
+
+\begin{document}
+
+
+% Tabela phi
+\resizebox{0.95\textwidth}{!}{%
+\import{./}{table1.tex}
+}
+
+\pagebreak
+
+\begin{multicols*}{2}
+
+\section{Variáveis Aleatorias}
+
+Função Distribuição de Probabilidade: 
+\[ 
+    f(x) = P(X \leq x)  
+\]
+Valor Esperado:
+\begin{align*}
+    & E(x) = \sum_x xp(x) 
+    \\
+    & E(aX + b) = aE(x) + b 
+    \\
+    & E(X^n) = \sum_x x^n p(x)
+\end{align*}
+Variância:
+    $Var(x)=E(X-\mu )^2$
+
+\section{Distribuições Discretas}
+
+\textbf{Binomial:} $ X \sim B(n,p) $ representa o número de sucessos em $ n $ tentativas independentes,
+cada qual com probabilidade de sucesso $ p $
+\begin{gather*}
+    P(X = i) = \binom{n}{i} p^i (1-p)^{n-i}
+    \\
+    E[X^k] = npE[(Y+1)^{k-1}] \text{ sendo } Y \sim B(n-1,p)
+    \\
+    Var[X] = np(1-p)
+\end{gather*}
+
+\textbf{Bernoulli:} $ X \sim Be(p) $ é uma varável aleatória binominal com n=1
+\begin{gather*}
+    P(X = i) = p^i (1-p)^{n-i}
+    \\
+    E[X^k] = p
+    \\
+    Var[X] = p(1-p)
+\end{gather*}
+
+\textbf{Poisson:} $ X \sim P(\lambda) $ assume valores $ i $ para $ 0,1,2,... $, sendo 
+$ \lambda > 0 $
+\begin{gather*}
+    P(X = i) = e^{-\lambda} \frac{\lambda^i}{i!}
+    \\
+    E[X] = Var[X] = \lambda
+\end{gather*}
+    - Aproximação da distribuição binomial: se $ \lambda = np $, então 
+    $ B(n,p) \approx P(\lambda) $
+\\
+
+\textbf{Binominal negativa:} define o número de tentativas necessárias para 
+obter r sucessos
+\begin{gather*}
+    P(X_r = n) = \binom{n-1}{r-1} p^r (1-p)^{n-r}
+    \\
+    E(X)
+    \\
+    V(X)
+\end{gather*}
+
+\textbf{Geométrica:} $ X\sim Geo(p) $ define o número de tentativas necessárias 
+para obter um sucesso. É uma variável binominal não negativa para r=1
+\begin{gather*}
+   P(X = i) = (1-p)^{n-1}p
+   \\
+   E(X)
+   \\
+   V(X)
+\end{gather*}
+\textbf{Hipergeométrica:} define o número de um mesmo evento ocorrer em um espaço
+amostral sem repetição
+\begin{gather*}
+   P(X = i) = \binom{n}{i}p^{i}(1-p)^{n-i}
+   \\
+   E(X)
+   \\
+   V(X)
+\end{gather*}
+
+\section{Distribuições Continuas}
+Falta aqui 
+
+\end{multicols*}
+
+\end{document}
